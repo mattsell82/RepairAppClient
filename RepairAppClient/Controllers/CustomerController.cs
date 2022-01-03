@@ -45,16 +45,19 @@ namespace RepairAppClient.Controllers
         // GET: Customer/Create
         public ActionResult Create()
         {
-            return View();
+            return View(new CustomerDto());
         }
 
         // POST: Customer/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(CustomerDto dto)
         {
             try
             {
-                // TODO: Add insert logic here
+                using (CaseServiceClient client = new CaseServiceClient())
+                {
+                    client.CreateCustomer(dto);
+                }
 
                 return RedirectToAction("Index");
             }
@@ -67,16 +70,34 @@ namespace RepairAppClient.Controllers
         // GET: Customer/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            using (CaseServiceClient client = new CaseServiceClient())
+            {
+                var customer = client.GetCustomer(id);
+
+                if (customer is null)
+                {
+                    return HttpNotFound();
+                }
+
+                return View(customer);
+            }
         }
 
         // POST: Customer/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(CustomerDto dto)
         {
+            if (dto is null)
+            {
+                return HttpNotFound();
+            }
+
             try
             {
-                // TODO: Add update logic here
+                using (CaseServiceClient client = new CaseServiceClient())
+                {
+                    client.EditCustomer(dto);
+                }
 
                 return RedirectToAction("Index");
             }
@@ -89,22 +110,35 @@ namespace RepairAppClient.Controllers
         // GET: Customer/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            using (CaseServiceClient client = new CaseServiceClient())
+            {
+                var customerDto = client.GetCustomer(id);
+
+                if (customerDto is null)
+                {
+                    return RedirectToAction("Index");
+                }
+
+                return View(customerDto);
+            }
         }
 
         // POST: Customer/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult ConfirmDelete(int id)
         {
             try
             {
-                // TODO: Add delete logic here
+                using (CaseServiceClient client = new CaseServiceClient())
+                {
+                    client.DeleteCustomer(id);
+                }
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return RedirectToAction("Index");
             }
         }
     }

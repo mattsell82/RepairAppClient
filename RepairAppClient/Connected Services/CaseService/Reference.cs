@@ -185,6 +185,24 @@ namespace RepairAppClient.CaseService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/GetCustomers", ReplyAction="http://tempuri.org/ICaseService/GetCustomersResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<RepairAppClient.CaseService.CustomerDto>> GetCustomersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/DeleteCustomer", ReplyAction="http://tempuri.org/ICaseService/DeleteCustomerResponse")]
+        void DeleteCustomer(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/DeleteCustomer", ReplyAction="http://tempuri.org/ICaseService/DeleteCustomerResponse")]
+        System.Threading.Tasks.Task DeleteCustomerAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/CreateCustomer", ReplyAction="http://tempuri.org/ICaseService/CreateCustomerResponse")]
+        void CreateCustomer(RepairAppClient.CaseService.CustomerDto customerDto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/CreateCustomer", ReplyAction="http://tempuri.org/ICaseService/CreateCustomerResponse")]
+        System.Threading.Tasks.Task CreateCustomerAsync(RepairAppClient.CaseService.CustomerDto customerDto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/EditCustomer", ReplyAction="http://tempuri.org/ICaseService/EditCustomerResponse")]
+        void EditCustomer(RepairAppClient.CaseService.CustomerDto customerDto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/EditCustomer", ReplyAction="http://tempuri.org/ICaseService/EditCustomerResponse")]
+        System.Threading.Tasks.Task EditCustomerAsync(RepairAppClient.CaseService.CustomerDto customerDto);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -228,6 +246,30 @@ namespace RepairAppClient.CaseService {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<RepairAppClient.CaseService.CustomerDto>> GetCustomersAsync() {
             return base.Channel.GetCustomersAsync();
+        }
+        
+        public void DeleteCustomer(int id) {
+            base.Channel.DeleteCustomer(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteCustomerAsync(int id) {
+            return base.Channel.DeleteCustomerAsync(id);
+        }
+        
+        public void CreateCustomer(RepairAppClient.CaseService.CustomerDto customerDto) {
+            base.Channel.CreateCustomer(customerDto);
+        }
+        
+        public System.Threading.Tasks.Task CreateCustomerAsync(RepairAppClient.CaseService.CustomerDto customerDto) {
+            return base.Channel.CreateCustomerAsync(customerDto);
+        }
+        
+        public void EditCustomer(RepairAppClient.CaseService.CustomerDto customerDto) {
+            base.Channel.EditCustomer(customerDto);
+        }
+        
+        public System.Threading.Tasks.Task EditCustomerAsync(RepairAppClient.CaseService.CustomerDto customerDto) {
+            return base.Channel.EditCustomerAsync(customerDto);
         }
     }
 }
