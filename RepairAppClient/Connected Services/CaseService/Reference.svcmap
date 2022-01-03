@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="57ea4f06-77bd-463f-8689-bfcaf315c5e9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:53880/CaseService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CaseService.xsd" MetadataType="Schema" ID="7f90ac47-c347-4736-bf27-d59b0abe4777" SourceId="1" SourceUrl="http://localhost:53880/CaseService.svc?xsd=xsd1" />
+    <MetadataFile FileName="CaseService.wsdl" MetadataType="Wsdl" ID="07c61eb7-cdf7-426b-afaa-c55db5675c63" SourceId="1" SourceUrl="http://localhost:53880/CaseService.svc?wsdl" />
+    <MetadataFile FileName="CaseService1.xsd" MetadataType="Schema" ID="7cf14194-5cb9-43da-8128-e50b8110dc63" SourceId="1" SourceUrl="http://localhost:53880/CaseService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CaseService2.xsd" MetadataType="Schema" ID="3db17d91-5d82-4724-a9d6-cfd5e174aec1" SourceId="1" SourceUrl="http://localhost:53880/CaseService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CaseService.disco" MetadataType="Disco" ID="6352fc56-4da1-4d5b-aaa0-fe7e244a2822" SourceId="1" SourceUrl="http://localhost:53880/CaseService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
