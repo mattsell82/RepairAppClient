@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -56,14 +57,16 @@ namespace RepairAppClient.Controllers
             {
                 using (CaseServiceClient client = new CaseServiceClient())
                 {
-                    client.CreateCustomer(dto);
+                    var customerId = client.CreateCustomer(dto);
+                    return RedirectToAction("Details", new { Id = customerId });
+
                 }
 
-                return RedirectToAction("Index");
             }
-            catch
+            catch (Exception e)
             {
-                return View();
+                ModelState.AddModelError("", "Firstname, Email and phone number are required.");
+                return View(dto);
             }
         }
 

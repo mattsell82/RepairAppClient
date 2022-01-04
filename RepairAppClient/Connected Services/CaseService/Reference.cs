@@ -193,10 +193,10 @@ namespace RepairAppClient.CaseService {
         System.Threading.Tasks.Task DeleteCustomerAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/CreateCustomer", ReplyAction="http://tempuri.org/ICaseService/CreateCustomerResponse")]
-        void CreateCustomer(RepairAppClient.CaseService.CustomerDto customerDto);
+        int CreateCustomer(RepairAppClient.CaseService.CustomerDto customerDto);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/CreateCustomer", ReplyAction="http://tempuri.org/ICaseService/CreateCustomerResponse")]
-        System.Threading.Tasks.Task CreateCustomerAsync(RepairAppClient.CaseService.CustomerDto customerDto);
+        System.Threading.Tasks.Task<int> CreateCustomerAsync(RepairAppClient.CaseService.CustomerDto customerDto);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/EditCustomer", ReplyAction="http://tempuri.org/ICaseService/EditCustomerResponse")]
         void EditCustomer(RepairAppClient.CaseService.CustomerDto customerDto);
@@ -256,11 +256,11 @@ namespace RepairAppClient.CaseService {
             return base.Channel.DeleteCustomerAsync(id);
         }
         
-        public void CreateCustomer(RepairAppClient.CaseService.CustomerDto customerDto) {
-            base.Channel.CreateCustomer(customerDto);
+        public int CreateCustomer(RepairAppClient.CaseService.CustomerDto customerDto) {
+            return base.Channel.CreateCustomer(customerDto);
         }
         
-        public System.Threading.Tasks.Task CreateCustomerAsync(RepairAppClient.CaseService.CustomerDto customerDto) {
+        public System.Threading.Tasks.Task<int> CreateCustomerAsync(RepairAppClient.CaseService.CustomerDto customerDto) {
             return base.Channel.CreateCustomerAsync(customerDto);
         }
         
