@@ -43,6 +43,10 @@ namespace RepairAppClient.Controllers
         {
             //kod för att hämta produkter
             //lägg produkterna i viewdata/viewbag
+            //            List<ArticleCategory> articleCategories = _context.ArticleCategory.OrderBy(a => a.Name).ToList();
+            //             ViewData["ArticleCategoryId"] = new SelectList(articleCategories, "Id", "Name");
+            //i vyn, hitta en likande som den nedan.
+            //< select asp -for= "ArticleCategoryId" class ="form-control" asp-items="ViewBag.ArticleCategoryId"></select>
 
 
             return View(new CaseDto());
