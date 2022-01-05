@@ -41,6 +41,10 @@ namespace RepairAppClient.Controllers
         // GET: Case/Create
         public ActionResult Create()
         {
+            //kod för att hämta produkter
+            //lägg produkterna i viewdata/viewbag
+
+
             return View(new CaseDto());
         }
 
