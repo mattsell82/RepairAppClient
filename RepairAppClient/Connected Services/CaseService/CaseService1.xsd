@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CaseService.Dto" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CaseService.Dto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/CaseService.Dto" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CaseService.Dto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:53880/CaseService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:complexType name="CustomerDto">
     <xs:sequence>
       <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
@@ -19,4 +20,37 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfCustomerDto" nillable="true" type="tns:ArrayOfCustomerDto" />
+  <xs:complexType name="ArrayOfStatusDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StatusDto" nillable="true" type="tns:StatusDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStatusDto" nillable="true" type="tns:ArrayOfStatusDto" />
+  <xs:complexType name="StatusDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StatusDto" nillable="true" type="tns:StatusDto" />
+  <xs:complexType name="ArrayOfCaseDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CaseDto" nillable="true" type="tns:CaseDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCaseDto" nillable="true" type="tns:ArrayOfCaseDto" />
+  <xs:complexType name="CaseDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CustomerId" type="xs:int" />
+      <xs:element minOccurs="0" name="DateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EmployeeId" type="xs:int" />
+      <xs:element minOccurs="0" name="ErrorDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EstimatedDeliveryDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Guid" type="ser:guid" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ProductId" type="xs:int" />
+      <xs:element minOccurs="0" name="StatusId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CaseDto" nillable="true" type="tns:CaseDto" />
 </xs:schema>

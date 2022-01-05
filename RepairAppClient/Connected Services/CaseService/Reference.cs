@@ -170,6 +170,240 @@ namespace RepairAppClient.CaseService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="StatusDto", Namespace="http://schemas.datacontract.org/2004/07/CaseService.Dto")]
+    [System.SerializableAttribute()]
+    public partial class StatusDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CaseDto", Namespace="http://schemas.datacontract.org/2004/07/CaseService.Dto")]
+    [System.SerializableAttribute()]
+    public partial class CaseDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CustomerIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DateTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int EmployeeIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ErrorDescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime EstimatedDeliveryDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid GuidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ProductIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int StatusIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CustomerId {
+            get {
+                return this.CustomerIdField;
+            }
+            set {
+                if ((this.CustomerIdField.Equals(value) != true)) {
+                    this.CustomerIdField = value;
+                    this.RaisePropertyChanged("CustomerId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DateTime {
+            get {
+                return this.DateTimeField;
+            }
+            set {
+                if ((this.DateTimeField.Equals(value) != true)) {
+                    this.DateTimeField = value;
+                    this.RaisePropertyChanged("DateTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int EmployeeId {
+            get {
+                return this.EmployeeIdField;
+            }
+            set {
+                if ((this.EmployeeIdField.Equals(value) != true)) {
+                    this.EmployeeIdField = value;
+                    this.RaisePropertyChanged("EmployeeId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ErrorDescription {
+            get {
+                return this.ErrorDescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorDescriptionField, value) != true)) {
+                    this.ErrorDescriptionField = value;
+                    this.RaisePropertyChanged("ErrorDescription");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime EstimatedDeliveryDate {
+            get {
+                return this.EstimatedDeliveryDateField;
+            }
+            set {
+                if ((this.EstimatedDeliveryDateField.Equals(value) != true)) {
+                    this.EstimatedDeliveryDateField = value;
+                    this.RaisePropertyChanged("EstimatedDeliveryDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid Guid {
+            get {
+                return this.GuidField;
+            }
+            set {
+                if ((this.GuidField.Equals(value) != true)) {
+                    this.GuidField = value;
+                    this.RaisePropertyChanged("Guid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ProductId {
+            get {
+                return this.ProductIdField;
+            }
+            set {
+                if ((this.ProductIdField.Equals(value) != true)) {
+                    this.ProductIdField = value;
+                    this.RaisePropertyChanged("ProductId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int StatusId {
+            get {
+                return this.StatusIdField;
+            }
+            set {
+                if ((this.StatusIdField.Equals(value) != true)) {
+                    this.StatusIdField = value;
+                    this.RaisePropertyChanged("StatusId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CaseService.ICaseService")]
     public interface ICaseService {
@@ -203,6 +437,24 @@ namespace RepairAppClient.CaseService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/EditCustomer", ReplyAction="http://tempuri.org/ICaseService/EditCustomerResponse")]
         System.Threading.Tasks.Task EditCustomerAsync(RepairAppClient.CaseService.CustomerDto customerDto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/GetStatusList", ReplyAction="http://tempuri.org/ICaseService/GetStatusListResponse")]
+        System.Collections.Generic.List<RepairAppClient.CaseService.StatusDto> GetStatusList();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/GetStatusList", ReplyAction="http://tempuri.org/ICaseService/GetStatusListResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<RepairAppClient.CaseService.StatusDto>> GetStatusListAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/GetCases", ReplyAction="http://tempuri.org/ICaseService/GetCasesResponse")]
+        System.Collections.Generic.List<RepairAppClient.CaseService.CaseDto> GetCases();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/GetCases", ReplyAction="http://tempuri.org/ICaseService/GetCasesResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<RepairAppClient.CaseService.CaseDto>> GetCasesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/CreateCase", ReplyAction="http://tempuri.org/ICaseService/CreateCaseResponse")]
+        void CreateCase(RepairAppClient.CaseService.CaseDto caseDto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/CreateCase", ReplyAction="http://tempuri.org/ICaseService/CreateCaseResponse")]
+        System.Threading.Tasks.Task CreateCaseAsync(RepairAppClient.CaseService.CaseDto caseDto);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -270,6 +522,30 @@ namespace RepairAppClient.CaseService {
         
         public System.Threading.Tasks.Task EditCustomerAsync(RepairAppClient.CaseService.CustomerDto customerDto) {
             return base.Channel.EditCustomerAsync(customerDto);
+        }
+        
+        public System.Collections.Generic.List<RepairAppClient.CaseService.StatusDto> GetStatusList() {
+            return base.Channel.GetStatusList();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<RepairAppClient.CaseService.StatusDto>> GetStatusListAsync() {
+            return base.Channel.GetStatusListAsync();
+        }
+        
+        public System.Collections.Generic.List<RepairAppClient.CaseService.CaseDto> GetCases() {
+            return base.Channel.GetCases();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<RepairAppClient.CaseService.CaseDto>> GetCasesAsync() {
+            return base.Channel.GetCasesAsync();
+        }
+        
+        public void CreateCase(RepairAppClient.CaseService.CaseDto caseDto) {
+            base.Channel.CreateCase(caseDto);
+        }
+        
+        public System.Threading.Tasks.Task CreateCaseAsync(RepairAppClient.CaseService.CaseDto caseDto) {
+            return base.Channel.CreateCaseAsync(caseDto);
         }
     }
 }
