@@ -58,7 +58,8 @@ namespace RepairAppClient.Controllers
         {
             using (ProduktServiceClient produktService = new ProduktServiceClient())
             {
-
+              List<ProduktService.Produkter1> MarkesLista= produktService.VisaAllaProdukter().ToList();
+              return View();
             }
             //kod för att hämta produkter
             //lägg produkterna i viewdata/viewbag
