@@ -1,4 +1,5 @@
 ﻿using RepairAppClient.CaseService;
+using RepairAppClient.ProduktService;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -55,6 +56,10 @@ namespace RepairAppClient.Controllers
         // GET: Case/Create
         public ActionResult Create(int id)
         {
+            using (ProduktServiceClient produktService = new ProduktServiceClient())
+            {
+
+            }
             //kod för att hämta produkter
             //lägg produkterna i viewdata/viewbag
             //            List<ArticleCategory> articleCategories = _context.ArticleCategory.OrderBy(a => a.Name).ToList();
