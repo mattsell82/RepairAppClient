@@ -139,6 +139,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\CaseListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\CaseService\CaseService.disco" />
@@ -235,8 +236,8 @@
     <Content Include="Views\Case\Index.cshtml" />
     <Content Include="Views\Case\Details.cshtml" />
     <Content Include="Views\Case\Create.cshtml" />
-    <Content Include="Views\Case\View.cshtml" />
     <Content Include="Views\Case\Edit.cshtml" />
+    <Content Include="Views\Case\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

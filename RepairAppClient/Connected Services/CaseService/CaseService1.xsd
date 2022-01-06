@@ -49,7 +49,7 @@
       <xs:element minOccurs="0" name="Guid" type="ser:guid" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="ProductId" type="xs:int" />
-      <xs:element minOccurs="0" name="StatusId" type="xs:int" />
+      <xs:element minOccurs="0" name="StatusDto" nillable="true" type="tns:StatusDto" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CaseDto" nillable="true" type="tns:CaseDto" />

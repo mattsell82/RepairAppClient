@@ -265,7 +265,7 @@ namespace RepairAppClient.CaseService {
         private int ProductIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int StatusIdField;
+        private RepairAppClient.CaseService.StatusDto StatusDtoField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -382,14 +382,14 @@ namespace RepairAppClient.CaseService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int StatusId {
+        public RepairAppClient.CaseService.StatusDto StatusDto {
             get {
-                return this.StatusIdField;
+                return this.StatusDtoField;
             }
             set {
-                if ((this.StatusIdField.Equals(value) != true)) {
-                    this.StatusIdField = value;
-                    this.RaisePropertyChanged("StatusId");
+                if ((object.ReferenceEquals(this.StatusDtoField, value) != true)) {
+                    this.StatusDtoField = value;
+                    this.RaisePropertyChanged("StatusDto");
                 }
             }
         }
@@ -461,6 +461,18 @@ namespace RepairAppClient.CaseService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/GetCaseByGuid", ReplyAction="http://tempuri.org/ICaseService/GetCaseByGuidResponse")]
         System.Threading.Tasks.Task<RepairAppClient.CaseService.CaseDto> GetCaseByGuidAsync(System.Guid guid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/GetCase", ReplyAction="http://tempuri.org/ICaseService/GetCaseResponse")]
+        RepairAppClient.CaseService.CaseDto GetCase(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/GetCase", ReplyAction="http://tempuri.org/ICaseService/GetCaseResponse")]
+        System.Threading.Tasks.Task<RepairAppClient.CaseService.CaseDto> GetCaseAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/DeleteCase", ReplyAction="http://tempuri.org/ICaseService/DeleteCaseResponse")]
+        void DeleteCase(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/DeleteCase", ReplyAction="http://tempuri.org/ICaseService/DeleteCaseResponse")]
+        System.Threading.Tasks.Task DeleteCaseAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -560,6 +572,22 @@ namespace RepairAppClient.CaseService {
         
         public System.Threading.Tasks.Task<RepairAppClient.CaseService.CaseDto> GetCaseByGuidAsync(System.Guid guid) {
             return base.Channel.GetCaseByGuidAsync(guid);
+        }
+        
+        public RepairAppClient.CaseService.CaseDto GetCase(int id) {
+            return base.Channel.GetCase(id);
+        }
+        
+        public System.Threading.Tasks.Task<RepairAppClient.CaseService.CaseDto> GetCaseAsync(int id) {
+            return base.Channel.GetCaseAsync(id);
+        }
+        
+        public void DeleteCase(int id) {
+            base.Channel.DeleteCase(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteCaseAsync(int id) {
+            return base.Channel.DeleteCaseAsync(id);
         }
     }
 }

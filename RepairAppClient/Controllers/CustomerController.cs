@@ -24,7 +24,6 @@ namespace RepairAppClient.Controllers
                 return View(customers);
             }
 
-            return View();
         }
 
         // GET: Customer/Details/5
@@ -102,7 +101,7 @@ namespace RepairAppClient.Controllers
                     client.EditCustomer(dto);
                 }
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { id = dto.Id});
             }
             catch
             {
