@@ -455,6 +455,12 @@ namespace RepairAppClient.CaseService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/CreateCase", ReplyAction="http://tempuri.org/ICaseService/CreateCaseResponse")]
         System.Threading.Tasks.Task CreateCaseAsync(RepairAppClient.CaseService.CaseDto caseDto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/GetCaseByGuid", ReplyAction="http://tempuri.org/ICaseService/GetCaseByGuidResponse")]
+        RepairAppClient.CaseService.CaseDto GetCaseByGuid(System.Guid guid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/GetCaseByGuid", ReplyAction="http://tempuri.org/ICaseService/GetCaseByGuidResponse")]
+        System.Threading.Tasks.Task<RepairAppClient.CaseService.CaseDto> GetCaseByGuidAsync(System.Guid guid);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -546,6 +552,14 @@ namespace RepairAppClient.CaseService {
         
         public System.Threading.Tasks.Task CreateCaseAsync(RepairAppClient.CaseService.CaseDto caseDto) {
             return base.Channel.CreateCaseAsync(caseDto);
+        }
+        
+        public RepairAppClient.CaseService.CaseDto GetCaseByGuid(System.Guid guid) {
+            return base.Channel.GetCaseByGuid(guid);
+        }
+        
+        public System.Threading.Tasks.Task<RepairAppClient.CaseService.CaseDto> GetCaseByGuidAsync(System.Guid guid) {
+            return base.Channel.GetCaseByGuidAsync(guid);
         }
     }
 }
