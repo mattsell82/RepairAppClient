@@ -32,6 +32,20 @@ namespace RepairAppClient.Controllers
 
         }
 
+        // GET: Case/Details/get by guid
+        public ActionResult GetByGuid(string guidString)
+        {
+            Guid guid = Guid.Parse(guidString);
+
+            using (CaseServiceClient client = new CaseServiceClient())
+            {
+                var caseDto = client.GetCaseByGuid(guid);
+
+                return View("Details", caseDto);
+            }
+
+        }
+
         // GET: Case/Details/5
         public ActionResult Details(int id)
         {
@@ -39,7 +53,7 @@ namespace RepairAppClient.Controllers
         }
 
         // GET: Case/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
             //kod för att hämta produkter
             //lägg produkterna i viewdata/viewbag
@@ -49,7 +63,7 @@ namespace RepairAppClient.Controllers
             //< select asp -for= "ArticleCategoryId" class ="form-control" asp-items="ViewBag.ArticleCategoryId"></select>
 
 
-            return View(new CaseDto());
+            return View(new CaseDto { CustomerId = id });
         }
 
         // POST: Case/Create

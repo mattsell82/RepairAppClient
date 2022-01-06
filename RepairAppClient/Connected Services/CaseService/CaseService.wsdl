@@ -55,6 +55,12 @@
   <wsdl:message name="ICaseService_CreateCase_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateCaseResponse" />
   </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseByGuid_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseByGuid" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCaseByGuid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseByGuidResponse" />
+  </wsdl:message>
   <wsdl:portType name="ICaseService">
     <wsdl:operation name="GetCustomer">
       <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCustomer" message="tns:ICaseService_GetCustomer_InputMessage" />
@@ -87,6 +93,10 @@
     <wsdl:operation name="CreateCase">
       <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/CreateCase" message="tns:ICaseService_CreateCase_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/CreateCaseResponse" message="tns:ICaseService_CreateCase_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseByGuid">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseByGuid" message="tns:ICaseService_GetCaseByGuid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseByGuidResponse" message="tns:ICaseService_GetCaseByGuid_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICaseService" type="tns:ICaseService">
@@ -156,6 +166,15 @@
     </wsdl:operation>
     <wsdl:operation name="CreateCase">
       <soap:operation soapAction="http://tempuri.org/ICaseService/CreateCase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseByGuid">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseByGuid" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

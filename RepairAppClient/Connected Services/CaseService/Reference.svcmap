@@ -24,11 +24,11 @@
     <MetadataSource Address="http://localhost:53880/CaseService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="CaseService.xsd" MetadataType="Schema" ID="7f90ac47-c347-4736-bf27-d59b0abe4777" SourceId="1" SourceUrl="http://localhost:53880/CaseService.svc?xsd=xsd1" />
     <MetadataFile FileName="CaseService.wsdl" MetadataType="Wsdl" ID="07c61eb7-cdf7-426b-afaa-c55db5675c63" SourceId="1" SourceUrl="http://localhost:53880/CaseService.svc?wsdl" />
     <MetadataFile FileName="CaseService1.xsd" MetadataType="Schema" ID="7cf14194-5cb9-43da-8128-e50b8110dc63" SourceId="1" SourceUrl="http://localhost:53880/CaseService.svc?xsd=xsd2" />
-    <MetadataFile FileName="CaseService2.xsd" MetadataType="Schema" ID="3db17d91-5d82-4724-a9d6-cfd5e174aec1" SourceId="1" SourceUrl="http://localhost:53880/CaseService.svc?xsd=xsd0" />
     <MetadataFile FileName="CaseService.disco" MetadataType="Disco" ID="6352fc56-4da1-4d5b-aaa0-fe7e244a2822" SourceId="1" SourceUrl="http://localhost:53880/CaseService.svc?disco" />
+    <MetadataFile FileName="CaseService.xsd" MetadataType="Schema" ID="7f90ac47-c347-4736-bf27-d59b0abe4777" SourceId="1" SourceUrl="http://localhost:53880/CaseService.svc?xsd=xsd1" />
+    <MetadataFile FileName="CaseService2.xsd" MetadataType="Schema" ID="3db17d91-5d82-4724-a9d6-cfd5e174aec1" SourceId="1" SourceUrl="http://localhost:53880/CaseService.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
