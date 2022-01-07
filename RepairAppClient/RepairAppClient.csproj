@@ -241,6 +241,7 @@
     <Content Include="Views\Case\Edit.cshtml" />
     <Content Include="Views\Case\Delete.cshtml" />
     <Content Include="Views\Quote\Create.cshtml" />
+    <Content Include="Views\Quote\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

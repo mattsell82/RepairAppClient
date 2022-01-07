@@ -4,16 +4,20 @@
     ViewBag.Title = "Detaljer";
 }
 
-<h2>Detaljer</h2>
+<h2>Ärende</h2>
 
 <div>
-    <h4>Ärende</h4>
+    <h4>Uppgifter</h4>
+    <p>
+        @Html.ActionLink("Tillbaka", "Index") |
+        @Html.ActionLink("Ändra", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Ange status", "Create", "Quote", new { caseId = Model.Id }, "")
+    </p>
     <hr />
     <dl class="dl-horizontal">
         <dt>
             Kundens namn
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.CustomerDto.FirstName)  @Html.DisplayFor(model => model.CustomerDto.LastName)
         </dd>
@@ -21,15 +25,13 @@
         <dt>
             Skapad
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.DateTime)
+            @Model.DateTime.ToString("yyy-MM-dd")
         </dd>
 
         <dt>
             Anställd
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.EmployeeId)
         </dd>
@@ -37,7 +39,6 @@
         <dt>
             Felbeskrivning
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.ErrorDescription)
         </dd>
@@ -45,15 +46,13 @@
         <dt>
             Beräknas färdig
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.EstimatedDeliveryDate)
+            @Model.DateTime.ToString("yyy-MM-dd")
         </dd>
 
         <dt>
             Guid
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Guid)
         </dd>
@@ -61,7 +60,6 @@
         <dt>
             Produkt
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.ProductId)
         </dd>
@@ -69,15 +67,67 @@
         <dt>
             Status
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.StatusDto.Name)
         </dd>
 
     </dl>
 </div>
+
+<h4>Kostnadsförslag</h4>
+
 <p>
-    @Html.ActionLink("Tillbaka", "Index") |
-    @Html.ActionLink("Ändra", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Lägg till kostnadsförslag", "Create", "Quote", new { caseId = Model.Id}, "")
+    @Html.ActionLink("Lägg till kostnadsförslag", "Create", "Quote", new { caseId = Model.Id }, "")
 </p>
+
+@if (Model.QuoteDtos.Count > 0)
+{
+    <table class="table">
+        <tr>
+            <th>
+                Skapat
+            </th>
+            <th>
+                Åtgärd
+            </th>
+            <th>
+                Kostnad
+            </th>
+            <th>
+                Besvarat
+            </th>
+            <th>
+                Accepterat
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.QuoteDtos)
+        {
+            <tr>
+                <td>
+                    @item.Created.ToString("yyy-MM-dd")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Measure)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Answered)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Accepted)
+                </td>
+                <td>
+                    @Html.ActionLink("Acceptera", "AnswerQuote", "Quote", new { quoteId = item.Id, answer = true, caseId = Model.Id }, "") |
+                    @Html.ActionLink("Avböj", "AnswerQuote", "Quote", new { quoteId = item.Id, answer = false, caseId = Model.Id }, "") |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+}

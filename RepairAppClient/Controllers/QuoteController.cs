@@ -15,6 +15,16 @@ namespace RepairAppClient.Controllers
             return View();
         }
 
+        // GET: Accept
+        public ActionResult AnswerQuote(int quoteId, bool answer, int caseId)
+        {
+            using (CaseServiceClient client = new CaseServiceClient())
+            {
+                client.AnswerQuote(quoteId, answer);
+            }
+            return RedirectToAction("Details", "Case", new { id = caseId});
+        }
+
         // GET: Quote/Details/5
         public ActionResult Details(int id)
         {

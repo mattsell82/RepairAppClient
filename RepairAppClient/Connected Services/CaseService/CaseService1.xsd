@@ -49,10 +49,17 @@
       <xs:element minOccurs="0" name="Guid" type="ser:guid" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="ProductId" type="xs:int" />
+      <xs:element minOccurs="0" name="QuoteDtos" nillable="true" type="tns:ArrayOfQuoteDto" />
       <xs:element minOccurs="0" name="StatusDto" nillable="true" type="tns:StatusDto" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CaseDto" nillable="true" type="tns:CaseDto" />
+  <xs:complexType name="ArrayOfQuoteDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="QuoteDto" nillable="true" type="tns:QuoteDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfQuoteDto" nillable="true" type="tns:ArrayOfQuoteDto" />
   <xs:complexType name="QuoteDto">
     <xs:sequence>
       <xs:element minOccurs="0" name="Accepted" type="xs:boolean" />
@@ -61,6 +68,7 @@
       <xs:element minOccurs="0" name="Cost" type="xs:double" />
       <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Measure" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="QuoteDto" nillable="true" type="tns:QuoteDto" />

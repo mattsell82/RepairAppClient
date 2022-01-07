@@ -265,6 +265,9 @@ namespace RepairAppClient.CaseService {
         private int ProductIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<RepairAppClient.CaseService.QuoteDto> QuoteDtosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private RepairAppClient.CaseService.StatusDto StatusDtoField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -382,6 +385,19 @@ namespace RepairAppClient.CaseService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<RepairAppClient.CaseService.QuoteDto> QuoteDtos {
+            get {
+                return this.QuoteDtosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.QuoteDtosField, value) != true)) {
+                    this.QuoteDtosField = value;
+                    this.RaisePropertyChanged("QuoteDtos");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public RepairAppClient.CaseService.StatusDto StatusDto {
             get {
                 return this.StatusDtoField;
@@ -430,6 +446,9 @@ namespace RepairAppClient.CaseService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MeasureField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -515,6 +534,19 @@ namespace RepairAppClient.CaseService {
                 if ((this.IdField.Equals(value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Measure {
+            get {
+                return this.MeasureField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MeasureField, value) != true)) {
+                    this.MeasureField = value;
+                    this.RaisePropertyChanged("Measure");
                 }
             }
         }
