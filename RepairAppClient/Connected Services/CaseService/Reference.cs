@@ -241,7 +241,7 @@ namespace RepairAppClient.CaseService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CustomerIdField;
+        private RepairAppClient.CaseService.CustomerDto CustomerDtoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime DateTimeField;
@@ -278,14 +278,14 @@ namespace RepairAppClient.CaseService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int CustomerId {
+        public RepairAppClient.CaseService.CustomerDto CustomerDto {
             get {
-                return this.CustomerIdField;
+                return this.CustomerDtoField;
             }
             set {
-                if ((this.CustomerIdField.Equals(value) != true)) {
-                    this.CustomerIdField = value;
-                    this.RaisePropertyChanged("CustomerId");
+                if ((object.ReferenceEquals(this.CustomerDtoField, value) != true)) {
+                    this.CustomerDtoField = value;
+                    this.RaisePropertyChanged("CustomerDto");
                 }
             }
         }
@@ -404,6 +404,131 @@ namespace RepairAppClient.CaseService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="QuoteDto", Namespace="http://schemas.datacontract.org/2004/07/CaseService.Dto")]
+    [System.SerializableAttribute()]
+    public partial class QuoteDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool AcceptedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool AnsweredField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CaseIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double CostField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreatedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Accepted {
+            get {
+                return this.AcceptedField;
+            }
+            set {
+                if ((this.AcceptedField.Equals(value) != true)) {
+                    this.AcceptedField = value;
+                    this.RaisePropertyChanged("Accepted");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Answered {
+            get {
+                return this.AnsweredField;
+            }
+            set {
+                if ((this.AnsweredField.Equals(value) != true)) {
+                    this.AnsweredField = value;
+                    this.RaisePropertyChanged("Answered");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CaseId {
+            get {
+                return this.CaseIdField;
+            }
+            set {
+                if ((this.CaseIdField.Equals(value) != true)) {
+                    this.CaseIdField = value;
+                    this.RaisePropertyChanged("CaseId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Cost {
+            get {
+                return this.CostField;
+            }
+            set {
+                if ((this.CostField.Equals(value) != true)) {
+                    this.CostField = value;
+                    this.RaisePropertyChanged("Cost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Created {
+            get {
+                return this.CreatedField;
+            }
+            set {
+                if ((this.CreatedField.Equals(value) != true)) {
+                    this.CreatedField = value;
+                    this.RaisePropertyChanged("Created");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CaseService.ICaseService")]
     public interface ICaseService {
@@ -473,6 +598,18 @@ namespace RepairAppClient.CaseService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/DeleteCase", ReplyAction="http://tempuri.org/ICaseService/DeleteCaseResponse")]
         System.Threading.Tasks.Task DeleteCaseAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/AddQuote", ReplyAction="http://tempuri.org/ICaseService/AddQuoteResponse")]
+        void AddQuote(RepairAppClient.CaseService.QuoteDto quoteDto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/AddQuote", ReplyAction="http://tempuri.org/ICaseService/AddQuoteResponse")]
+        System.Threading.Tasks.Task AddQuoteAsync(RepairAppClient.CaseService.QuoteDto quoteDto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/AnswerQuote", ReplyAction="http://tempuri.org/ICaseService/AnswerQuoteResponse")]
+        void AnswerQuote(int id, bool answer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/AnswerQuote", ReplyAction="http://tempuri.org/ICaseService/AnswerQuoteResponse")]
+        System.Threading.Tasks.Task AnswerQuoteAsync(int id, bool answer);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -588,6 +725,22 @@ namespace RepairAppClient.CaseService {
         
         public System.Threading.Tasks.Task DeleteCaseAsync(int id) {
             return base.Channel.DeleteCaseAsync(id);
+        }
+        
+        public void AddQuote(RepairAppClient.CaseService.QuoteDto quoteDto) {
+            base.Channel.AddQuote(quoteDto);
+        }
+        
+        public System.Threading.Tasks.Task AddQuoteAsync(RepairAppClient.CaseService.QuoteDto quoteDto) {
+            return base.Channel.AddQuoteAsync(quoteDto);
+        }
+        
+        public void AnswerQuote(int id, bool answer) {
+            base.Channel.AnswerQuote(id, answer);
+        }
+        
+        public System.Threading.Tasks.Task AnswerQuoteAsync(int id, bool answer) {
+            return base.Channel.AnswerQuoteAsync(id, answer);
         }
     }
 }

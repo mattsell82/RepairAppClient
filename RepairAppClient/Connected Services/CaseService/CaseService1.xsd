@@ -41,7 +41,7 @@
   <xs:element name="ArrayOfCaseDto" nillable="true" type="tns:ArrayOfCaseDto" />
   <xs:complexType name="CaseDto">
     <xs:sequence>
-      <xs:element minOccurs="0" name="CustomerId" type="xs:int" />
+      <xs:element minOccurs="0" name="CustomerDto" nillable="true" type="tns:CustomerDto" />
       <xs:element minOccurs="0" name="DateTime" type="xs:dateTime" />
       <xs:element minOccurs="0" name="EmployeeId" type="xs:int" />
       <xs:element minOccurs="0" name="ErrorDescription" nillable="true" type="xs:string" />
@@ -53,4 +53,15 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CaseDto" nillable="true" type="tns:CaseDto" />
+  <xs:complexType name="QuoteDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Accepted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Answered" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CaseId" type="xs:int" />
+      <xs:element minOccurs="0" name="Cost" type="xs:double" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QuoteDto" nillable="true" type="tns:QuoteDto" />
 </xs:schema>

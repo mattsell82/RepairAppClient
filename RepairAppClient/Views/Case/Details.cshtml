@@ -1,25 +1,25 @@
 ﻿@model RepairAppClient.CaseService.CaseDto
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detaljer";
 }
 
-<h2>Details</h2>
+<h2>Detaljer</h2>
 
 <div>
-    <h4>CaseDto</h4>
+    <h4>Ärende</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.CustomerId)
+            Kundens namn
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CustomerId)
+            @Html.DisplayFor(model => model.CustomerDto.FirstName)  @Html.DisplayFor(model => model.CustomerDto.LastName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DateTime)
+            Skapad
         </dt>
 
         <dd>
@@ -27,7 +27,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EmployeeId)
+            Anställd
         </dt>
 
         <dd>
@@ -35,7 +35,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ErrorDescription)
+            Felbeskrivning
         </dt>
 
         <dd>
@@ -43,7 +43,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EstimatedDeliveryDate)
+            Beräknas färdig
         </dt>
 
         <dd>
@@ -51,7 +51,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Guid)
+            Guid
         </dt>
 
         <dd>
@@ -59,7 +59,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ProductId)
+            Produkt
         </dt>
 
         <dd>
@@ -77,7 +77,7 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index") |
-    @Html.ActionLink("Add Quote", "Index")
+    @Html.ActionLink("Tillbaka", "Index") |
+    @Html.ActionLink("Ändra", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Lägg till kostnadsförslag", "Create", "Quote", new { caseId = Model.Id}, "")
 </p>

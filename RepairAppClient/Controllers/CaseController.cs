@@ -82,7 +82,7 @@ namespace RepairAppClient.Controllers
 
                 ViewData["Products"] = new SelectList(options, "Value", "Text");
 
-                return View(new CaseDto { CustomerId = customer });
+                return View(new CaseDto { CustomerDto = new CustomerDto { Id = customer} });
             }
             //kod för att hämta produkter
             //lägg produkterna i viewdata/viewbag
@@ -161,7 +161,7 @@ namespace RepairAppClient.Controllers
             {
                 using (CaseServiceClient client = new CaseServiceClient())
                 {
-                    client.DeleteCustomer(id);
+                    client.DeleteCase(id);
                 }
 
                 return RedirectToAction("Index");

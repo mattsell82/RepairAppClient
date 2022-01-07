@@ -16,13 +16,13 @@
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    @Html.HiddenFor(model => model.CustomerId, new { htmlAttributes = new { @class = "form-control" } })
-    @Html.ValidationMessageFor(model => model.CustomerId, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.CustomerDto.Id, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.CustomerDto.Id, "", new { @class = "text-danger" })
 
     <div class="form-group">
         @Html.LabelFor(model => model.ErrorDescription, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.ErrorDescription, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.TextAreaFor(model => model.ErrorDescription, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.ErrorDescription, "", new { @class = "text-danger" })
         </div>
     </div>

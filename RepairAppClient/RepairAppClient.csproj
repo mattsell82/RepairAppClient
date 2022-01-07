@@ -135,6 +135,7 @@
     <Compile Include="Controllers\CaseController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\QuoteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -160,6 +161,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\custom.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -238,9 +240,11 @@
     <Content Include="Views\Case\Create.cshtml" />
     <Content Include="Views\Case\Edit.cshtml" />
     <Content Include="Views\Case\Delete.cshtml" />
+    <Content Include="Views\Quote\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\img\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
