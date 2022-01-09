@@ -1,10 +1,12 @@
-﻿using System;
+﻿using RepairAppClient.CaseService;
+using RepairAppClient.ProduktService;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using RepairAppClient.CaseService;
+
 
 namespace RepairAppClient.Controllers
 {
@@ -24,7 +26,6 @@ namespace RepairAppClient.Controllers
                 return View(customers);
             }
 
-            return View();
         }
 
         // GET: Customer/Details/5
@@ -102,7 +103,7 @@ namespace RepairAppClient.Controllers
                     client.EditCustomer(dto);
                 }
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { id = dto.Id});
             }
             catch
             {

@@ -48,18 +48,41 @@ namespace RepairAppClient.Controllers
         }
 
         // GET: Case/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(string id)
         {
-            return View();
+            int caseId;
+            if (!int.TryParse(id, out caseId))
+            {
+                return RedirectToAction("Index");
+            }
+
+            using (CaseServiceClient client = new CaseServiceClient())
+            {
+                var caseDto = client.GetCase(caseId);
+
+                return View(caseDto);
+            }
         }
 
         // GET: Case/Create
-        public ActionResult Create(int id)
+        public ActionResult Create(string id)
         {
+            int customer;
+
+            if (!int.TryParse(id, out customer))
+            {
+                return RedirectToAction("Index");
+            }
+
             using (ProduktServiceClient produktService = new ProduktServiceClient())
             {
-              List<ProduktService.Produkter1> MarkesLista= produktService.VisaAllaProdukter().ToList();
-              return View();
+                var products = produktService.VisaAllaProdukter();
+
+                var options = products.Select(p => new SelectListItem { Value = p.Id.ToString(), Text = p.Märke + p.Modell});
+
+                ViewData["Products"] = new SelectList(options, "Value", "Text");
+
+                return View(new CaseDto { CustomerDto = new CustomerDto { Id = customer} });
             }
             //kod för att hämta produkter
             //lägg produkterna i viewdata/viewbag
@@ -69,7 +92,7 @@ namespace RepairAppClient.Controllers
             //< select asp -for= "ArticleCategoryId" class ="form-control" asp-items="ViewBag.ArticleCategoryId"></select>
 
 
-            return View(new CaseDto { CustomerId = id });
+
         }
 
         // POST: Case/Create
@@ -87,8 +110,8 @@ namespace RepairAppClient.Controllers
             }
             catch
             {
-                ModelState.AddModelError("", "Something went wrong");
-                return View(caseDto);
+                ModelState.AddModelError("", "Case could not be created.");
+                return RedirectToAction("index", "Customer");
             }
         }
 
@@ -117,22 +140,35 @@ namespace RepairAppClient.Controllers
         // GET: Case/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            using (CaseServiceClient client = new CaseServiceClient())
+            {
+                var caseDto = client.GetCase(id);
+
+                if (caseDto is null)
+                {
+                    return RedirectToAction("Index");
+                }
+
+                return View(caseDto);
+            }
         }
 
         // POST: Case/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult ConfirmDelete(int id)
         {
             try
             {
-                // TODO: Add delete logic here
+                using (CaseServiceClient client = new CaseServiceClient())
+                {
+                    client.DeleteCase(id);
+                }
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return RedirectToAction("Index");
             }
         }
     }

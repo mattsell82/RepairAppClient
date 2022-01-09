@@ -1,82 +1,133 @@
 ﻿@model RepairAppClient.CaseService.CaseDto
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detaljer";
 }
 
-<h2>Details</h2>
+<h2>Ärende</h2>
 
 <div>
-    <h4>CaseDto</h4>
+    <h4>Uppgifter</h4>
+    <p>
+        @Html.ActionLink("Tillbaka", "Index") |
+        @Html.ActionLink("Ändra", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Ange status", "Create", "Quote", new { caseId = Model.Id }, "")
+    </p>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.CustomerId)
+            Kundens namn
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.CustomerId)
+            @Html.DisplayFor(model => model.CustomerDto.FirstName)  @Html.DisplayFor(model => model.CustomerDto.LastName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DateTime)
+            Skapad
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.DateTime)
+            @Model.DateTime.ToString("yyy-MM-dd")
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EmployeeId)
+            Anställd
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.EmployeeId)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ErrorDescription)
+            Felbeskrivning
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.ErrorDescription)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EstimatedDeliveryDate)
+            Beräknas färdig
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.EstimatedDeliveryDate)
+            @Model.DateTime.ToString("yyy-MM-dd")
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Guid)
+            Guid
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Guid)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ProductId)
+            Produkt
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.ProductId)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.StatusId)
+            Status
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.StatusId)
+            @Html.DisplayFor(model => model.StatusDto.Name)
         </dd>
 
     </dl>
 </div>
+
+<h4>Kostnadsförslag</h4>
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Lägg till kostnadsförslag", "Create", "Quote", new { caseId = Model.Id }, "")
 </p>
+
+@if (Model.QuoteDtos.Count > 0)
+{
+    <table class="table">
+        <tr>
+            <th>
+                Skapat
+            </th>
+            <th>
+                Åtgärd
+            </th>
+            <th>
+                Kostnad
+            </th>
+            <th>
+                Besvarat
+            </th>
+            <th>
+                Accepterat
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.QuoteDtos)
+        {
+            <tr>
+                <td>
+                    @item.Created.ToString("yyy-MM-dd")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Measure)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Answered)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Accepted)
+                </td>
+                <td>
+                    @Html.ActionLink("Acceptera", "AnswerQuote", "Quote", new { quoteId = item.Id, answer = true, caseId = Model.Id }, "") |
+                    @Html.ActionLink("Avböj", "AnswerQuote", "Quote", new { quoteId = item.Id, answer = false, caseId = Model.Id }, "") |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+}

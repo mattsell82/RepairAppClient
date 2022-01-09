@@ -1,65 +1,71 @@
 ﻿@model RepairAppClient.CaseService.CustomerDto
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detaljer";
 }
 
-<h2>Details</h2>
+<h2>Detaljer</h2>
 
 <div>
-    <h4>CustomerDto</h4>
+    <h4>Kund</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.City)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
+            Förnamn
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.FirstName)
         </dd>
 
+
         <dt>
-            @Html.DisplayNameFor(model => model.LastName)
+            Efternamn
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.LastName)
         </dd>
 
+
         <dt>
-            @Html.DisplayNameFor(model => model.Phone)
+            Telefon
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Phone)
         </dd>
 
+
         <dt>
-            @Html.DisplayNameFor(model => model.Zip)
+            Epost
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+
+        <dt>
+            Adress
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+
+        <dt>
+            Stad
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+
+        <dt>
+            Postnummer
         </dt>
 
         <dd>
@@ -69,9 +75,8 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-<p>
-    @Html.ActionLink("Create Case", "Create", "Case", new { id = Model.Id }, "")
-</p>
+    @Html.ActionLink("Tillbaka", "Index") |
+    @Html.ActionLink("Ändra", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Ta bort", "Delete", new { id = Model.Id }) |
+    @Html.ActionLink("Skapa ärende", "Create", "Case", new { id = Model.Id }, "")
 </p>

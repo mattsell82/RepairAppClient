@@ -61,6 +61,30 @@
   <wsdl:message name="ICaseService_GetCaseByGuid_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCaseByGuidResponse" />
   </wsdl:message>
+  <wsdl:message name="ICaseService_GetCase_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCase" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_GetCase_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_DeleteCase_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCase" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_DeleteCase_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddQuote_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddQuote" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AddQuote_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddQuoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AnswerQuote_InputMessage">
+    <wsdl:part name="parameters" element="tns:AnswerQuote" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_AnswerQuote_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AnswerQuoteResponse" />
+  </wsdl:message>
   <wsdl:portType name="ICaseService">
     <wsdl:operation name="GetCustomer">
       <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCustomer" message="tns:ICaseService_GetCustomer_InputMessage" />
@@ -97,6 +121,22 @@
     <wsdl:operation name="GetCaseByGuid">
       <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCaseByGuid" message="tns:ICaseService_GetCaseByGuid_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseByGuidResponse" message="tns:ICaseService_GetCaseByGuid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCase">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCase" message="tns:ICaseService_GetCase_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/GetCaseResponse" message="tns:ICaseService_GetCase_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCase">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/DeleteCase" message="tns:ICaseService_DeleteCase_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/DeleteCaseResponse" message="tns:ICaseService_DeleteCase_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddQuote">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/AddQuote" message="tns:ICaseService_AddQuote_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/AddQuoteResponse" message="tns:ICaseService_AddQuote_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AnswerQuote">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/AnswerQuote" message="tns:ICaseService_AnswerQuote_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/AnswerQuoteResponse" message="tns:ICaseService_AnswerQuote_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICaseService" type="tns:ICaseService">
@@ -175,6 +215,42 @@
     </wsdl:operation>
     <wsdl:operation name="GetCaseByGuid">
       <soap:operation soapAction="http://tempuri.org/ICaseService/GetCaseByGuid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCase">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/GetCase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCase">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/DeleteCase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddQuote">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/AddQuote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AnswerQuote">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/AnswerQuote" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
