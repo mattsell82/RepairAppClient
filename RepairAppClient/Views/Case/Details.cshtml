@@ -7,68 +7,73 @@
 
 <h2>Ärendedetaljer</h2>
 <div>
-    <p>
-        @Html.ActionLink("Tillbaka", "Index") |
-        @Html.ActionLink("Ändra", "Edit", new { id = Model.Id }) |
-        @Html.ActionLink("Ange status", "Create", "Quote", new { caseId = Model.Id }, "") |
-        @Html.ActionLink("Lägg till kostnadsförslag", "Create", "Quote", new { caseId = Model.Id }, "")
-    </p>
-    <hr />
-    <h4>Ärendeuppgifter</h4>
-    <dl class="dl-horizontal">
+    @if (User.Identity.IsAuthenticated)
+    {
 
-        <dt>
-            Kundens namn
-        </dt>
-        <dd>
-            @Html.ActionLink(Model.CustomerDto.FirstName + " " + Model.CustomerDto.LastName, "Details", "Customer", new { id = Model.CustomerDto.Id}, "")
+        <p>
+            @Html.ActionLink("Tillbaka", "Index") |
+            @Html.ActionLink("Ändra", "Edit", new { id = Model.Id }) |
+            @Html.ActionLink("Ange status", "Create", "Quote", new { caseId = Model.Id }, "") |
+            @Html.ActionLink("Lägg till kostnadsförslag", "Create", "Quote", new { caseId = Model.Id }, "")
+        </p>
+    }
 
-        </dd>
+        <hr />
+        <h4>Ärendeuppgifter</h4>
+        <dl class="dl-horizontal">
 
-        <dt>
-            Skapad
-        </dt>
-        <dd>
-            @Model.DateTime.ToString("yyy-MM-dd")
-        </dd>
+            <dt>
+                Kundens namn
+            </dt>
+            <dd>
+                @Html.ActionLink(Model.CustomerDto.FirstName + " " + Model.CustomerDto.LastName, "Details", "Customer", new { id = Model.CustomerDto.Id }, "")
 
-        <dt>
-            Anställd
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EmployeeId)
-        </dd>
+            </dd>
 
-        <dt>
-            Felbeskrivning
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ErrorDescription)
-        </dd>
+            <dt>
+                Skapad
+            </dt>
+            <dd>
+                @Model.DateTime.ToString("yyy-MM-dd")
+            </dd>
 
-        <dt>
-            Beräknas färdig
-        </dt>
-        <dd>
-            @Model.DateTime.ToString("yyy-MM-dd")
-        </dd>
+            <dt>
+                Anställd
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.EmployeeId)
+            </dd>
 
-        <dt>
-            Guid
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Guid)
-        </dd>
+            <dt>
+                Felbeskrivning
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ErrorDescription)
+            </dd>
 
-        <dt>
-            Status
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.StatusDto.Name)
-        </dd>
+            <dt>
+                Beräknas färdig
+            </dt>
+            <dd>
+                @Model.DateTime.ToString("yyy-MM-dd")
+            </dd>
 
-    </dl>
-</div>
+            <dt>
+                Guid
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Guid)
+            </dd>
+
+            <dt>
+                Status
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.StatusDto.Name)
+            </dd>
+
+        </dl>
+    </div>
 
 
 <hr />
@@ -153,9 +158,19 @@
                     @Html.DisplayFor(modelItem => item.Accepted)
                 </td>
                 <td>
-                    @Html.ActionLink("Acceptera", "AnswerQuote", "Quote", new { quoteId = item.Id, answer = true, caseId = Model.Id }, "") |
-                    @Html.ActionLink("Avböj", "AnswerQuote", "Quote", new { quoteId = item.Id, answer = false, caseId = Model.Id }, "") |
-                    @Html.ActionLink("Ta bort kostnadsförslag", "Delete", "Quote", new { id = item.Id , caseId = Model.Id }, "")
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        @Html.ActionLink("Ta bort kostnadsförslag", "Delete", "Quote", new { id = item.Id, caseId = Model.Id }, "")
+                    }
+
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        @Html.ActionLink("Acceptera", "AnswerQuote", "Quote", new { quoteId = item.Id, answer = true, guidString = Model.Guid.ToString() }, "") 
+                        @Html.Encode(" | ")
+                        @Html.ActionLink("Avböj", "AnswerQuote", "Quote", new { quoteId = item.Id, answer = false, guidString = Model.Guid.ToString() }, "")
+                    }
+
                 </td>
             </tr>
         }

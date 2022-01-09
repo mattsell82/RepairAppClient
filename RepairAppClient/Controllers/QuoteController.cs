@@ -17,13 +17,13 @@ namespace RepairAppClient.Controllers
         }
 
         // GET: Accept
-        public ActionResult AnswerQuote(int quoteId, bool answer, int caseId)
+        public ActionResult AnswerQuote(int quoteId, bool answer, string guidString)
         {
             using (CaseServiceClient client = new CaseServiceClient())
             {
                 client.AnswerQuote(quoteId, answer);
             }
-            return RedirectToAction("Details", "Case", new { id = caseId});
+            return RedirectToAction("GetByGuid", "Case", new { id = guidString});
         }
 
         // GET: Quote/Details/5
@@ -33,6 +33,7 @@ namespace RepairAppClient.Controllers
         }
 
         // GET: Quote/Create
+        [Authorize]
         public ActionResult Create(string caseId)
         {
             if (int.TryParse(caseId, out int parsedId))
@@ -44,6 +45,8 @@ namespace RepairAppClient.Controllers
         }
 
         // POST: Quote/Create
+
+        [Authorize]
         [HttpPost]
         public ActionResult Create(QuoteDto quoteDto)
         {
@@ -85,6 +88,7 @@ namespace RepairAppClient.Controllers
         }
 
         // GET: Quote/Delete/5
+        [Authorize]
         public ActionResult Delete(string id, int caseId)
         {
 

@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace RepairAppClient.Controllers
 {
+    [Authorize]
     public class CustomerController : Controller
     {
         // GET: Customer

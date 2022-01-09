@@ -2,42 +2,38 @@
     ViewBag.Title = "Lagat & Klart";
 }
 
+<div class="jumbotron">
 
-<div>
-
-    <style>
-
-        body {
-            text-align: center;
-        }
-
-        img {
-            min-width: 100%;
-            min-height: 100%
-        }
-    </style>
-    <img src="~/logos/logo5.jpg" />
-
-
-    <p class="lead"></p>
+    <img src="~/logos/rundlogga.png" height="300" width="300" style="float: right" />
+    <h1>Lagat & klart</h1>
+    <p class="lead">Ditt proffs på datorer. Vi felsöker, uppdaterar och reparerar både hårdvara och mjukvara. Vi erbjuder korta ledtider och bästa möjliga service med möjlighet att hela tiden kan följa ditt ärende här på sida. </p>
+    <p><a href="" class="btn btn-primary btn-lg">Läs mer och boka tid &raquo;</a></p>
 </div>
 
 <div class="row">
+
     <div class="col-md-4">
         <h2>Boka tid</h2>
-
-        <p><a class="btn btn-default" href="https://www.kalender.se/">Boka här</a></p>
+        <p>Besök vår bokningskalender för att se när det finns lediga tider då vi kan ta emot din dator.</p>
+        <p><a class="btn btn-primary" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
     </div>
 
     <div class="col-md-4">
         <h2>Reparationsstatus</h2>
-
-        <form action="~/Case/GetByGuid/" method="get">
-            <input type="text" name="guidString" id="guidString" placeholder="Ange referens"/>
-            <input type="submit" value="Sök" class="btn btn-default"/>
-        </form>
-
+        <p>
+            Med hjälp av ditt referensnummer kan du följa ditt ärende för att se när det beräknas vara färdigt.
+        </p>
+        <p>
+            <form action="~/Case/GetByGuid/" method="get">
+                <input type="text" name="guidString" id="guidString" placeholder="Ange referens" />
+                <input type="submit" value="Sök" class="btn btn-primary" />
+            </form>
+        </p>
     </div>
 
+    <div class="col-md-4">
+        <h2>Kontakta oss</h2>
+        <p>Om du har några frågor är du alltid välkommen att kontakta oss så kan vi rekommendera lämplig åtgräd.</p>
+        <p><a class="btn btn-primary" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
 </div>
-

@@ -12,6 +12,7 @@ namespace RepairAppClient.Controllers
     public class CaseController : Controller
     {
         // GET: Case
+        [Authorize]
         public ActionResult Index()
         {
             try
@@ -74,6 +75,7 @@ namespace RepairAppClient.Controllers
         }
 
         // GET: Case/Details/5
+        [Authorize]
         public ActionResult Details(string id)
         {
             int caseId;
@@ -99,6 +101,7 @@ namespace RepairAppClient.Controllers
         }
 
         // GET: Case/Create
+        [Authorize]
         public ActionResult Create(string id)
         {
             int customer;
@@ -112,16 +115,17 @@ namespace RepairAppClient.Controllers
             {
                 var products = produktService.VisaAllaProdukter();
 
-                var options = products.Select(p => new SelectListItem { Value = p.Id.ToString(), Text = p.Märke + p.Modell});
+                var options = products.Select(p => new SelectListItem { Value = p.Id.ToString(), Text = p.Märke + p.Modell });
 
                 ViewData["Products"] = new SelectList(options, "Value", "Text");
 
-                return View(new CaseDto { CustomerDto = new CustomerDto { Id = customer} });
+                return View(new CaseDto { CustomerDto = new CustomerDto { Id = customer } });
             }
 
         }
 
         // POST: Case/Create
+        [Authorize]
         [HttpPost]
         public ActionResult Create(CaseDto caseDto)
         {
@@ -142,6 +146,7 @@ namespace RepairAppClient.Controllers
         }
 
         // GET: Case/Edit/5
+        [Authorize]
         public ActionResult Edit(int id)
         {
             return View();
@@ -149,6 +154,7 @@ namespace RepairAppClient.Controllers
 
         // POST: Case/Edit/5
         [HttpPost]
+        [Authorize]
         public ActionResult Edit(int id, FormCollection collection)
         {
             try
@@ -164,6 +170,7 @@ namespace RepairAppClient.Controllers
         }
 
         // GET: Case/Delete/5
+        [Authorize]
         public ActionResult Delete(int id)
         {
             using (CaseServiceClient client = new CaseServiceClient())
@@ -180,6 +187,7 @@ namespace RepairAppClient.Controllers
         }
 
         // POST: Case/Delete/5
+        [Authorize]
         [HttpPost]
         public ActionResult ConfirmDelete(int id)
         {
