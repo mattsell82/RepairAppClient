@@ -19,8 +19,25 @@ namespace RepairAppClient.Controllers
                 using (CaseServiceClient client = new CaseServiceClient())
                 {
                     var cases = client.GetCases();
+
+                    Dictionary<int, string> productDictionary = new Dictionary<int, string>();
+
+                    //hämtar produkternas man och lägger dem i en dictionary. skulle nog vara bättra att göra detta med en viewModel istället.
+                    using (ProduktServiceClient produktClient = new ProduktServiceClient())
+                    {
+                        var productList = produktClient.VisaAllaProdukter().ToList();
+
+                        foreach (var item in productList)
+                        {
+                            productDictionary.Add(item.Id, item.Modell);
+                        }
+                    }
+
+                    ViewData["Products"] = productDictionary;
+
                     return View(cases);
                 }
+
             }
             catch (Exception e)
             {
@@ -28,23 +45,32 @@ namespace RepairAppClient.Controllers
                 throw;
             }
 
-
-
-
         }
 
         // GET: Case/Details/get by guid
         public ActionResult GetByGuid(string guidString)
         {
-            Guid guid = Guid.Parse(guidString);
-
-            using (CaseServiceClient client = new CaseServiceClient())
+            //försöker parsa guiden
+            if (Guid.TryParse(guidString, out Guid guid))
             {
-                var caseDto = client.GetCaseByGuid(guid);
+                //om guiden kan parsas hämtas ärendet
+                using (CaseServiceClient client = new CaseServiceClient())
+                {
+                    var caseDto = client.GetCaseByGuid(guid);
 
-                return View("Details", caseDto);
+                    //Hämtar produkten och lägger den i en viewbag
+                    using (ProduktServiceClient productClient = new ProduktServiceClient())
+                    {
+                        Produkter1 product = productClient.VisaProdukt(caseDto.ProductId);
+                        ViewData["Product"] = product;
+                    }
+
+                    return View("Details", caseDto);
+                }
             }
 
+            //om guiden inte kan parsas skickas man till home index.
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: Case/Details/5
@@ -59,6 +85,14 @@ namespace RepairAppClient.Controllers
             using (CaseServiceClient client = new CaseServiceClient())
             {
                 var caseDto = client.GetCase(caseId);
+
+
+                using (ProduktServiceClient productClient = new ProduktServiceClient())
+                {
+                    Produkter1 product = productClient.VisaProdukt(caseDto.ProductId);
+                    ViewData["Product"] = product;
+                }
+
 
                 return View(caseDto);
             }
@@ -84,14 +118,6 @@ namespace RepairAppClient.Controllers
 
                 return View(new CaseDto { CustomerDto = new CustomerDto { Id = customer} });
             }
-            //kod för att hämta produkter
-            //lägg produkterna i viewdata/viewbag
-            //            List<ArticleCategory> articleCategories = _context.ArticleCategory.OrderBy(a => a.Name).ToList();
-            //             ViewData["ArticleCategoryId"] = new SelectList(articleCategories, "Id", "Name");
-            //i vyn, hitta en likande som den nedan.
-            //< select asp -for= "ArticleCategoryId" class ="form-control" asp-items="ViewBag.ArticleCategoryId"></select>
-
-
 
         }
 

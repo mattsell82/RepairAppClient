@@ -642,6 +642,12 @@ namespace RepairAppClient.CaseService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/AnswerQuote", ReplyAction="http://tempuri.org/ICaseService/AnswerQuoteResponse")]
         System.Threading.Tasks.Task AnswerQuoteAsync(int id, bool answer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/DeleteQuote", ReplyAction="http://tempuri.org/ICaseService/DeleteQuoteResponse")]
+        void DeleteQuote(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICaseService/DeleteQuote", ReplyAction="http://tempuri.org/ICaseService/DeleteQuoteResponse")]
+        System.Threading.Tasks.Task DeleteQuoteAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -773,6 +779,14 @@ namespace RepairAppClient.CaseService {
         
         public System.Threading.Tasks.Task AnswerQuoteAsync(int id, bool answer) {
             return base.Channel.AnswerQuoteAsync(id, answer);
+        }
+        
+        public void DeleteQuote(int id) {
+            base.Channel.DeleteQuote(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteQuoteAsync(int id) {
+            return base.Channel.DeleteQuoteAsync(id);
         }
     }
 }

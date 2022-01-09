@@ -85,9 +85,22 @@ namespace RepairAppClient.Controllers
         }
 
         // GET: Quote/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(string id, int caseId)
         {
-            return View();
+
+            if (int.TryParse(id, out int parsedQuoteId))
+            {
+                using (CaseServiceClient client = new CaseServiceClient())
+                {
+                    client.DeleteQuote(parsedQuoteId);
+
+                }
+
+                return RedirectToAction("Details", "Case", new { id = caseId});
+
+            }
+
+            return RedirectToAction("Details", "Case", new { id = caseId });
         }
 
         // POST: Quote/Delete/5

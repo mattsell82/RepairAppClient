@@ -131,6 +131,12 @@ namespace RepairAppClient.ProduktService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduktService/VisaAllaProdukter", ReplyAction="http://tempuri.org/IProduktService/VisaAllaProdukterResponse")]
         System.Threading.Tasks.Task<RepairAppClient.ProduktService.Produkter1[]> VisaAllaProdukterAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduktService/VisaProdukt", ReplyAction="http://tempuri.org/IProduktService/VisaProduktResponse")]
+        RepairAppClient.ProduktService.Produkter1 VisaProdukt(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduktService/VisaProdukt", ReplyAction="http://tempuri.org/IProduktService/VisaProduktResponse")]
+        System.Threading.Tasks.Task<RepairAppClient.ProduktService.Produkter1> VisaProduktAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -166,6 +172,14 @@ namespace RepairAppClient.ProduktService {
         
         public System.Threading.Tasks.Task<RepairAppClient.ProduktService.Produkter1[]> VisaAllaProdukterAsync() {
             return base.Channel.VisaAllaProdukterAsync();
+        }
+        
+        public RepairAppClient.ProduktService.Produkter1 VisaProdukt(int id) {
+            return base.Channel.VisaProdukt(id);
+        }
+        
+        public System.Threading.Tasks.Task<RepairAppClient.ProduktService.Produkter1> VisaProduktAsync(int id) {
+            return base.Channel.VisaProduktAsync(id);
         }
     }
 }

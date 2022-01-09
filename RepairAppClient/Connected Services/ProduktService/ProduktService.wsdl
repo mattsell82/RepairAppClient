@@ -13,16 +13,35 @@
   <wsdl:message name="IProduktService_VisaAllaProdukter_OutputMessage">
     <wsdl:part name="parameters" element="tns:VisaAllaProdukterResponse" />
   </wsdl:message>
+  <wsdl:message name="IProduktService_VisaProdukt_InputMessage">
+    <wsdl:part name="parameters" element="tns:VisaProdukt" />
+  </wsdl:message>
+  <wsdl:message name="IProduktService_VisaProdukt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VisaProduktResponse" />
+  </wsdl:message>
   <wsdl:portType name="IProduktService">
     <wsdl:operation name="VisaAllaProdukter">
       <wsdl:input wsaw:Action="http://tempuri.org/IProduktService/VisaAllaProdukter" message="tns:IProduktService_VisaAllaProdukter_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProduktService/VisaAllaProdukterResponse" message="tns:IProduktService_VisaAllaProdukter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VisaProdukt">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProduktService/VisaProdukt" message="tns:IProduktService_VisaProdukt_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProduktService/VisaProduktResponse" message="tns:IProduktService_VisaProdukt_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IProduktService" type="tns:IProduktService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="VisaAllaProdukter">
       <soap:operation soapAction="http://tempuri.org/IProduktService/VisaAllaProdukter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VisaProdukt">
+      <soap:operation soapAction="http://tempuri.org/IProduktService/VisaProdukt" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

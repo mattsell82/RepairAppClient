@@ -31,7 +31,11 @@
 
     <div class="col-md-4">
         <h2>Reparationsstatus</h2>
-        <p><a class="btn btn-default" href="~/Status/Index">Enhetsstatus</a></p>
+
+        <form action="~/Case/GetByGuid/" method="get">
+            <input type="text" name="guidString" id="guidString" placeholder="Ange referens"/>
+            <input type="submit" value="Sök" class="btn btn-default"/>
+        </form>
 
     </div>
 
