@@ -11,16 +11,13 @@
 <table class="table">
     <tr>
         <th>
+            Id
+        </th>
+        <th>
             Skapat
         </th>
         <th>
             Kund
-        </th>
-        <th>
-            Anställd
-        </th>
-        <th>
-            Felbeskrivning
         </th>
         <th>
             Produkt
@@ -35,16 +32,13 @@
     {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
                 @item.DateTime.ToString("yyy-MM-dd")
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CustomerDto.FirstName) @Html.DisplayFor(modelItem => item.CustomerDto.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmployeeId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ErrorDescription)
             </td>
             <td>
                 @ViewBag.Products[item.ProductId]

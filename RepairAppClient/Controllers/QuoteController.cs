@@ -23,7 +23,7 @@ namespace RepairAppClient.Controllers
             {
                 client.AnswerQuote(quoteId, answer);
             }
-            return RedirectToAction("GetByGuid", "Case", new { id = guidString});
+            return RedirectToAction("GetByGuid", "Case", new { guidString = guidString});
         }
 
         // GET: Quote/Details/5

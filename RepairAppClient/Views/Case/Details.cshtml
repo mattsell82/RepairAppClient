@@ -38,13 +38,6 @@
             </dd>
 
             <dt>
-                Anställd
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.EmployeeId)
-            </dd>
-
-            <dt>
                 Felbeskrivning
             </dt>
             <dd>
@@ -55,7 +48,7 @@
                 Beräknas färdig
             </dt>
             <dd>
-                @Model.DateTime.ToString("yyy-MM-dd")
+                @Model.EstimatedDeliveryDate.ToString("yyy-MM-dd")
             </dd>
 
             <dt>

@@ -25,7 +25,7 @@
                     {
                         <li>@Html.ActionLink("Ärenden", "Index", "Case")</li>
                         <li>@Html.ActionLink("Kunder", "Index", "Customer")</li>
-                        <li>@Html.ActionLink("Logga ut", "Index", "Login")</li>
+                        <li>@Html.ActionLink("Logga ut", "LogOut", "Login")</li>
                     }
                     
                     @if (!User.Identity.IsAuthenticated)

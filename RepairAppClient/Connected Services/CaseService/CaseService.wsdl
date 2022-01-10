@@ -91,6 +91,12 @@
   <wsdl:message name="ICaseService_DeleteQuote_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteQuoteResponse" />
   </wsdl:message>
+  <wsdl:message name="ICaseService_EditCase_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditCase" />
+  </wsdl:message>
+  <wsdl:message name="ICaseService_EditCase_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditCaseResponse" />
+  </wsdl:message>
   <wsdl:portType name="ICaseService">
     <wsdl:operation name="GetCustomer">
       <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/GetCustomer" message="tns:ICaseService_GetCustomer_InputMessage" />
@@ -147,6 +153,10 @@
     <wsdl:operation name="DeleteQuote">
       <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/DeleteQuote" message="tns:ICaseService_DeleteQuote_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/DeleteQuoteResponse" message="tns:ICaseService_DeleteQuote_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditCase">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICaseService/EditCase" message="tns:ICaseService_EditCase_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICaseService/EditCaseResponse" message="tns:ICaseService_EditCase_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICaseService" type="tns:ICaseService">
@@ -270,6 +280,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteQuote">
       <soap:operation soapAction="http://tempuri.org/ICaseService/DeleteQuote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditCase">
+      <soap:operation soapAction="http://tempuri.org/ICaseService/EditCase" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

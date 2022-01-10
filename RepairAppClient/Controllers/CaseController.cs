@@ -104,9 +104,9 @@ namespace RepairAppClient.Controllers
         [Authorize]
         public ActionResult Create(string id)
         {
-            int customer;
+            int parsedId;
 
-            if (!int.TryParse(id, out customer))
+            if (!int.TryParse(id, out parsedId))
             {
                 return RedirectToAction("Index");
             }
@@ -119,7 +119,13 @@ namespace RepairAppClient.Controllers
 
                 ViewData["Products"] = new SelectList(options, "Value", "Text");
 
-                return View(new CaseDto { CustomerDto = new CustomerDto { Id = customer } });
+                var caseDto = new CaseDto { 
+                    CustomerDto = new CustomerDto { Id = parsedId },
+                    EstimatedDeliveryDate = DateTime.Now };
+
+                caseDto.EstimatedDeliveryDate = caseDto.EstimatedDeliveryDate.Date;
+
+                return View(caseDto);
             }
 
         }
@@ -138,9 +144,9 @@ namespace RepairAppClient.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception e)
             {
-                ModelState.AddModelError("", "Case could not be created.");
+                Debug.WriteLine("Felmeddelande case/create: " + e.Message);
                 return RedirectToAction("index", "Customer");
             }
         }
@@ -149,19 +155,43 @@ namespace RepairAppClient.Controllers
         [Authorize]
         public ActionResult Edit(int id)
         {
-            return View();
+            using (CaseServiceClient client = new CaseServiceClient())
+            {
+                var caseDto = client.GetCase(id);
+
+                if (caseDto is null)
+                {
+                    return HttpNotFound();
+                }
+
+                var statusDtos = client.GetStatusList();
+
+                ViewData["Status"] = new SelectList(statusDtos, "Id", "Name", caseDto.StatusDto.Id);
+
+                return View(caseDto);
+            }
+
+
         }
 
         // POST: Case/Edit/5
         [HttpPost]
         [Authorize]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(CaseDto caseDto)
         {
+            if (caseDto is null)
+            {
+                return HttpNotFound();
+            }
+
             try
             {
-                // TODO: Add update logic here
+                using (CaseServiceClient client = new CaseServiceClient())
+                {
+                    client.EditCase(caseDto);
+                }
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { id = caseDto.Id });
             }
             catch
             {

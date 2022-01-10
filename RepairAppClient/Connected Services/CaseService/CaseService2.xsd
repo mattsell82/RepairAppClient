@@ -179,4 +179,16 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="EditCase">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/CaseService.Dto" minOccurs="0" name="caseDto" nillable="true" type="q12:CaseDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditCaseResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

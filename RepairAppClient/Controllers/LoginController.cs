@@ -31,6 +31,16 @@ namespace RepairAppClient.Controllers
             return View(user);
         }
 
+        public ActionResult LogOut()
+        {
+
+            System.Web.Security.FormsAuthentication.SignOut();
+
+
+            return RedirectToAction("Index");
+        }
+
+
 
         // GET: Login/Details/5
         public ActionResult Details(int id)
