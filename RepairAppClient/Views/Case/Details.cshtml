@@ -13,7 +13,6 @@
         <p>
             @Html.ActionLink("Tillbaka", "Index") |
             @Html.ActionLink("Ändra", "Edit", new { id = Model.Id }) |
-            @Html.ActionLink("Ange status", "Create", "Quote", new { caseId = Model.Id }, "") |
             @Html.ActionLink("Lägg till kostnadsförslag", "Create", "Quote", new { caseId = Model.Id }, "")
         </p>
     }
