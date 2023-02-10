@@ -14,4 +14,11 @@ Features:
 * Staff can add suggested repair cost to a case.
 * Customer can use case reference (guid) to login and accept / decline the suggested repair offer.  
   
+![bild](https://user-images.githubusercontent.com/69501706/218212831-6606b87c-13e4-417a-8895-d9c8f1cc6ee3.png)  
+Landing page.
   
+![bild](https://user-images.githubusercontent.com/69501706/218213600-997bb3ec-12c7-4ab0-901b-c9b731aa4876.png)  
+Staff view.
+  
+![bild](https://user-images.githubusercontent.com/69501706/218213909-d5b8f3fb-c239-4d35-8910-8c63b00e81f8.png)
+Customer view.
